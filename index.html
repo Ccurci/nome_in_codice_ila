@@ -390,7 +390,7 @@
     #hint {
       font-size: 1.5rem; /* Cambia la grandezza della scritta dell'indizio */
       font-weight: bold;
-      margin: 10px 0;
+      margin: 10px 10px;
     }
   </style>
   
@@ -432,9 +432,12 @@
       });
   
       const remainingCards = correctCards.filter(cardName => !resolvedCards.has(cardName)); // Carte ancora da scoprire
-  
+      console.log('resolved Cards', resolvedCards);
+      console.log('correct cards', correctCards);
       if (resolvedCards.size === correctCards.length) {
+        console.log('indizio completato')
         // Indizio completato correttamente
+        resolvedCards = new Set();
         confirmBtn.style.display = 'none';
         nextHintBtn.style.display = 'inline-block'; // Mostra il pulsante "Nuovo Indizio"
       } else if (!allCorrect) {
@@ -447,7 +450,7 @@
               card.classList.remove('flipped');
               card.querySelector('.card-back').classList.remove('sad');
               card.classList.remove('selected');
-            }, 1000); // Timeout per vedere l'immagine sad
+            }, 1500); // Timeout per vedere l'immagine sad
           }
         });
       }
@@ -491,17 +494,20 @@
           selectedCards.push(card);
           card.classList.add('selected');
         }
-  
+       
         // Verifica se il numero giusto di carte è stato selezionato per l'indizio corrente
         const currentHintData = hints[currentHint];
         const correctCards = currentHintData.correctCards;
         const remainingCards = correctCards.filter(cardName => !resolvedCards.has(cardName)); // Carte ancora da scoprire
-  
+        
         if (selectedCards.length === remainingCards.length) {
           confirmBtn.style.display = 'inline-block'; // Mostra il pulsante di conferma
         } else {
           confirmBtn.style.display = 'none'; // Nascondi il pulsante di conferma
         }
+        console.log('current hint numero: '+ currentHint+' ,currentHintData'+ currentHintData);
+        console.log(remainingCards);
+        console.log(selectedCards);
       });
     });
   
