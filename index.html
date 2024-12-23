@@ -78,18 +78,18 @@
 
     .card .card-front .text-upright {
       color: black;
-      top: 10px; /* Posiziona il testo in alto */
+      top: 57px; /* Posiziona il testo in alto */
       left: 50%;
       transform: translateX(-50%);
-      font-size: 18px; /* Font size diverso */
+      font-size: 16px; /* Font size diverso */
     }
 
     .card .card-front .text-upside-down {
-      color: brown;
-      bottom: 10px; /* Posiziona il testo in basso */
-      left: 50%;
+      color: rgba(81, 55, 16, 0.719);
+      bottom: 50px; /* Posiziona il testo in basso */
+      left: 40%;
       transform: translateX(-50%) rotate(180deg); /* Ruota il testo sottosopra */
-      font-size: 14px; /* Font size diverso */
+      font-size: 12px; /* Font size diverso */
     }
 
     /* Retro della carta */
@@ -103,6 +103,18 @@
       font-size: 18px;
       text-align: center;
       transform: rotateY(180deg); /* Necessario per il retro */
+    }
+
+    .happy {
+      background-image: url('happy.jpg');
+      background-size: cover; /* Assicura che l'immagine copra l'intero spazio */
+      background-position: top center; /* Sposta l'immagine verso l'alto, centrata orizzontalmente */
+    }
+
+    .sad {
+      background-image: url('sad.jpg');
+      background-size: cover; /* Assicura che l'immagine copra l'intero spazio */
+      background-position: top center; /* Sposta l'immagine verso l'alto, centrata orizzontalmente */
     }
 
     #confirm-btn, #retry-btn {
@@ -137,136 +149,371 @@
 
   <h1>Nome in Codice - Auguri</h1>
 
-  <div id="hint">Indizio: Ila, 3</div>
+
+  <div id="hint">Indizio: le lettere di Ilaria, 6</div>
   
   <div class="grid">
-    <div class="card" data-correct="true">
+    <!-- Carte con le immagini e i messaggi sul retro -->
+    <div class="card" data-letter="INIMITABILE">
       <div class="card-inner">
         <div class="card-front">
-          <div class="text text-upright">Torta</div>
-          <div class="text text-upside-down">Torta</div>
+          <div class="text text-upright">INIMITABILE</div>
+          <div class="text text-upside-down">INIMITABILE</div>
         </div>
         <div class="card-back"></div>
       </div>
     </div>
-    <div class="card" data-correct="true">
+    <div class="card" data-letter="LOMBRICO">
       <div class="card-inner">
         <div class="card-front">
-          <div class="text text-upright">Candela</div>
-          <div class="text text-upside-down">Candela</div>
+          <div class="text text-upright"> LOMBRICO</div>
+          <div class="text text-upside-down"> LOMBRICO</div>
         </div>
         <div class="card-back"></div>
       </div>
     </div>
-    <div class="card" data-correct="true">
+    <div class="card" data-letter="ANIMA">
       <div class="card-inner">
         <div class="card-front">
-          <div class="text text-upright">Festa</div>
-          <div class="text text-upside-down">Festa</div>
+          <div class="text text-upright">ANIMA</div>
+          <div class="text text-upside-down">ANIMA</div>
         </div>
         <div class="card-back"></div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" data-letter="ROMA">
       <div class="card-inner">
         <div class="card-front">
-          <div class="text text-upright">Dolci</div>
-          <div class="text text-upside-down">Dolci</div>
+          <div class="text text-upright">ROMA</div>
+          <div class="text text-upside-down">ROMA</div>
         </div>
         <div class="card-back"></div>
       </div>
     </div>
-    <div class="card">
+    <div class="card" data-letter="INDIA">
       <div class="card-inner">
         <div class="card-front">
-          <div class="text text-upright">Sorrisi</div>
-          <div class="text text-upside-down">Sorrisi</div>
+          <div class="text text-upright">INDIA</div>
+          <div class="text text-upside-down">INDIA</div>
         </div>
         <div class="card-back"></div>
       </div>
     </div>
+    <div class="card" data-letter="FELICITA">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">FELICITA'</div>
+          <div class="text text-upside-down">FELICITA'</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="LAUREA">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">LAUREA</div>
+          <div class="text text-upside-down">LAUREA</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="HITLARIA">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">HITLARIA</div>
+          <div class="text text-upside-down">HITLARIA</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="MARGHERITA">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">MARGHERITA</div>
+          <div class="text text-upside-down">MARGHERITA</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="MONTAGNA">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">MONTAGNA</div>
+          <div class="text text-upside-down">MONTAGNA</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="BLOOM">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">BLOOM</div>
+          <div class="text text-upside-down">BLOOM</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="WINX">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">WINX</div>
+          <div class="text text-upside-down">WINX</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="PRATO">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">PRATO</div>
+          <div class="text text-upside-down">PRATO</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="SOLE">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">SOLE</div>
+          <div class="text text-upside-down">SOLE</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="FASCISTA">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">FASCISTA</div>
+          <div class="text text-upside-down">FASCISTA</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="LIBERALE">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">LIBERALE</div>
+          <div class="text text-upside-down">LIBERALE</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="BALENA">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">BALENA</div>
+          <div class="text text-upside-down">BALENA</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="APE">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">APE</div>
+          <div class="text text-upside-down">APE</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="ORA">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">ORA</div>
+          <div class="text text-upside-down">ORA</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="TEMPO">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">TEMPO</div>
+          <div class="text text-upside-down">TEMPO</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="COSA">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">COSA</div>
+          <div class="text text-upside-down">COSA</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="LUOGO">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">LUOGO</div>
+          <div class="text text-upside-down">LUOGO</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="AMORE">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">AMORE</div>
+          <div class="text text-upside-down">AMORE</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="ROSA">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">ROSA</div>
+          <div class="text text-upside-down">ROSA</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-letter="ACQUA">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">ACQUA</div>
+          <div class="text text-upside-down">ACQUA</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <!-- Ripeti altre carte fino a 25 -->
   </div>
 
-  <button id="confirm-btn">Conferma</button>
-  <button id="retry-btn">Ritenta</button>
-  <div id="message">Tanti auguri, Ila! 🎉</div>
-
+  <button id="confirm-btn" style="display:none;">Conferma</button>
+  <button id="next-hint-btn" style="display:none;">Nuovo Indizio</button>
+  <div id="message" style="display:none;">Tanti auguri, Ila! 🎉</div>
+  
+  <style>
+    #hint {
+      font-size: 1.5rem; /* Cambia la grandezza della scritta dell'indizio */
+      font-weight: bold;
+      margin: 10px 0;
+    }
+  </style>
+  
   <script>
     const cards = document.querySelectorAll('.card');
     const confirmBtn = document.getElementById('confirm-btn');
-    const retryBtn = document.getElementById('retry-btn');
+    const nextHintBtn = document.getElementById('next-hint-btn');
     const message = document.getElementById('message');
-
+    const hint = document.getElementById('hint');
     let selectedCards = [];
-
+    let currentHint = 0;
+  
+    const hints = [
+      { clue: "le lettere di Ilaria, 6", correctCards: ["INDIA", "LUOGO", "ANIMA", "ROMA", "INIMITABILE", "AMORE"] }, // Indizio 1
+      { clue: "le identità di Ilaria, 2", correctCards: ["HITLARIA", "BLOOM"] }, // Indizio 2
+      { clue: "il futuro di Ila, 3", correctCards: ["FELICITA", "LAUREA", "MONTAGNA"] }, // Indizio 3
+    ];
+  
+    let resolvedCards = new Set(); // Carte già scoperte correttamente
+  
+    function checkSelection() {
+      const currentHintData = hints[currentHint];
+      const correctCards = currentHintData.correctCards;
+  
+      let allCorrect = true;
+  
+      selectedCards.forEach(card => {
+        const cardName = card.dataset.letter;
+  
+        if (correctCards.includes(cardName)) {
+          card.classList.add('flipped');
+          card.querySelector('.card-back').classList.add('happy'); // Mostra immagine happy
+          resolvedCards.add(cardName); // Segna la carta come risolta
+        } else {
+          card.classList.add('flipped');
+          card.querySelector('.card-back').classList.add('sad'); // Mostra immagine sad
+          allCorrect = false; // Selezione sbagliata
+        }
+      });
+  
+      const remainingCards = correctCards.filter(cardName => !resolvedCards.has(cardName)); // Carte ancora da scoprire
+  
+      if (resolvedCards.size === correctCards.length) {
+        // Indizio completato correttamente
+        confirmBtn.style.display = 'none';
+        nextHintBtn.style.display = 'inline-block'; // Mostra il pulsante "Nuovo Indizio"
+      } else if (!allCorrect) {
+        // Indizio fallito: deseleziona solo le carte sbagliate
+        alert("Hai selezionato carte sbagliate! Riprova.");
+        selectedCards.forEach(card => {
+          const cardName = card.dataset.letter;
+          if (!correctCards.includes(cardName)) {
+            setTimeout(() => {
+              card.classList.remove('flipped');
+              card.querySelector('.card-back').classList.remove('sad');
+              card.classList.remove('selected');
+            }, 1000); // Timeout per vedere l'immagine sad
+          }
+        });
+      }
+  
+      selectedCards = [];
+    }
+  
+    function resetSelection() {
+      selectedCards.forEach(card => {
+        card.classList.remove('selected');
+      });
+      selectedCards = [];
+      confirmBtn.style.display = 'none';
+      nextHintBtn.style.display = 'none';
+    }
+  
+    function goToNextHint() {
+      if (currentHint < hints.length - 1) {
+        currentHint++; // Passa al prossimo indizio
+        hint.textContent = `Indizio: ${hints[currentHint].clue}`; // Mostra il nuovo indizio
+        resetSelection(); // Deseleziona le carte selezionate
+      } else {
+        // Tutti gli indizi completati
+        message.style.display = 'block'; // Mostra il messaggio finale
+        confirmBtn.style.display = 'none';
+        nextHintBtn.style.display = 'none';
+      }
+    }
+  
     // Aggiungi evento di click a ciascuna carta
     cards.forEach(card => {
       card.addEventListener('click', () => {
-        // Se la carta è già selezionata, deseleziona
-        if (card.classList.contains('selected')) {
+        if (card.classList.contains('flipped') && resolvedCards.has(card.dataset.letter)) {
+          return; // Non selezionare carte già risolte
+        }
+  
+        if (selectedCards.includes(card)) {
           card.classList.remove('selected');
-          selectedCards = selectedCards.filter(c => c !== card); // Rimuovi dalla selezione
+          selectedCards = selectedCards.filter(selectedCard => selectedCard !== card);
         } else {
-          // Se non è selezionata e non siamo già a 3 carte, seleziona la carta
-          if (selectedCards.length < 3) {
-            selectedCards.push(card);
-            card.classList.add('selected');
-          }
+          selectedCards.push(card);
+          card.classList.add('selected');
         }
-
-        // Se sono state selezionate 3 carte, mostra il pulsante di conferma
-        if (selectedCards.length === 3) {
-          confirmBtn.style.display = 'inline-block';
+  
+        // Verifica se il numero giusto di carte è stato selezionato per l'indizio corrente
+        const currentHintData = hints[currentHint];
+        const correctCards = currentHintData.correctCards;
+        const remainingCards = correctCards.filter(cardName => !resolvedCards.has(cardName)); // Carte ancora da scoprire
+  
+        if (selectedCards.length === remainingCards.length) {
+          confirmBtn.style.display = 'inline-block'; // Mostra il pulsante di conferma
         } else {
-          confirmBtn.style.display = 'none';
+          confirmBtn.style.display = 'none'; // Nascondi il pulsante di conferma
         }
       });
     });
-
+  
     // Gestione del pulsante di conferma
-    confirmBtn.addEventListener('click', () => {
-      selectedCards.forEach(card => {
-        const isCorrect = card.dataset.correct === "true";
-        const back = card.querySelector('.card-back');
-        
-        // Cambia l'immagine in base alla correttezza
-        if (isCorrect) {
-          back.style.backgroundImage = "url('happy.jpg')";
-        } else {
-          back.style.backgroundImage = "url('sad.jpg')";
-        }
-
-        card.classList.add('flipped'); // Gira la carta
-      });
-
-      // Controlla se tutte le carte selezionate sono corrette
-      const allCorrect = selectedCards.every(card => card.dataset.correct === "true");
-      if (allCorrect) {
-        message.style.display = 'block'; // Mostra il messaggio finale
-        retryBtn.style.display = 'none'; // Nascondi il pulsante Ritenta
-      } else {
-        alert("Hai selezionato carte sbagliate! Riprova.");
-        retryBtn.style.display = 'inline-block'; // Mostra il pulsante Ritenta
-      }
-
-      confirmBtn.style.display = 'none'; // Nascondi il pulsante Conferma
+    confirmBtn.addEventListener('click', checkSelection);
+  
+    // Gestione del pulsante di nuovo indizio
+    nextHintBtn.addEventListener('click', () => {
+      goToNextHint(); // Avanza al prossimo indizio
     });
-
-    // Gestione del pulsante Ritenta
-    retryBtn.addEventListener('click', () => {
-      selectedCards.forEach(card => {
-        card.classList.remove('flipped', 'selected'); // Resetta le carte
-        const back = card.querySelector('.card-back');
-        back.style.backgroundImage = ''; // Rimuove l'immagine di sfondo
-      });
-      selectedCards = [];
-      retryBtn.style.display = 'none'; // Nascondi il pulsante Ritenta
-
-      // Rigira tutte le carte sul lato originale
-      cards.forEach(card => {
-        card.classList.remove('flipped'); // Resetta la rotazione
-      });
-    });
+  
+    // Mostra il primo indizio all'inizio
+    hint.textContent = `Indizio: ${hints[currentHint].clue}`;
   </script>
-</body>
-</html>
+  
