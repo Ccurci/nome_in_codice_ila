@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nome in Codice - Auguri</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .card {
+      width: 150px;
+      height: 100px;
+      position: relative;
+      perspective: 1000px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+    }
+
+    .card .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card .card-front, .card .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 8px;
+    }
+
+    /* Fronte della carta con immagine */
+    .card .card-front {
+      background-image: url('carta_fronte.jpg'); /* Usa la tua immagine */
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex; /* Per posizionare il testo sopra */
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card .card-front .text {
+      position: absolute;
+      font-weight: bold;
+      text-transform: uppercase; /* Maiuscolo */
+    }
+
+    .card .card-front .text-upright {
+      color: black;
+      top: 10px; /* Posiziona il testo in alto */
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 18px; /* Font size diverso */
+    }
+
+    .card .card-front .text-upside-down {
+      color: brown;
+      bottom: 10px; /* Posiziona il testo in basso */
+      left: 50%;
+      transform: translateX(-50%) rotate(180deg); /* Ruota il testo sottosopra */
+      font-size: 14px; /* Font size diverso */
+    }
+
+    /* Retro della carta */
+    .card .card-back {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      text-align: center;
+      transform: rotateY(180deg); /* Necessario per il retro */
+    }
+
+    #confirm-btn, #retry-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none;
+    }
+
+    #retry-btn {
+      background-color: #e74c3c; /* Rosso per il pulsante Ritenta */
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #e74c3c;
+      display: none;
+    }
+
+    .selected {
+      border: 2px solid #007bff; /* Evidenziazione delle carte selezionate */
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Nome in Codice - Auguri</h1>
+
+  <div id="hint">Indizio: Ila, 3</div>
+  
+  <div class="grid">
+    <div class="card" data-correct="true">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">Torta</div>
+          <div class="text text-upside-down">Torta</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-correct="true">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">Candela</div>
+          <div class="text text-upside-down">Candela</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card" data-correct="true">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">Festa</div>
+          <div class="text text-upside-down">Festa</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">Dolci</div>
+          <div class="text text-upside-down">Dolci</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">Sorrisi</div>
+          <div class="text text-upside-down">Sorrisi</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
+  </div>
+
+  <button id="confirm-btn">Conferma</button>
+  <button id="retry-btn">Ritenta</button>
+  <div id="message">Tanti auguri, Ila! 🎉</div>
+
+  <script>
+    const cards = document.querySelectorAll('.card');
+    const confirmBtn = document.getElementById('confirm-btn');
+    const retryBtn = document.getElementById('retry-btn');
+    const message = document.getElementById('message');
+
+    let selectedCards = [];
+
+    // Aggiungi evento di click a ciascuna carta
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        // Se la carta è già selezionata, deseleziona
+        if (card.classList.contains('selected')) {
+          card.classList.remove('selected');
+          selectedCards = selectedCards.filter(c => c !== card); // Rimuovi dalla selezione
+        } else {
+          // Se non è selezionata e non siamo già a 3 carte, seleziona la carta
+          if (selectedCards.length < 3) {
+            selectedCards.push(card);
+            card.classList.add('selected');
+          }
+        }
+
+        // Se sono state selezionate 3 carte, mostra il pulsante di conferma
+        if (selectedCards.length === 3) {
+          confirmBtn.style.display = 'inline-block';
+        } else {
+          confirmBtn.style.display = 'none';
+        }
+      });
+    });
+
+    // Gestione del pulsante di conferma
+    confirmBtn.addEventListener('click', () => {
+      selectedCards.forEach(card => {
+        const isCorrect = card.dataset.correct === "true";
+        const back = card.querySelector('.card-back');
+        
+        // Cambia l'immagine in base alla correttezza
+        if (isCorrect) {
+          back.style.backgroundImage = "url('happy.jpg')";
+        } else {
+          back.style.backgroundImage = "url('sad.jpg')";
+        }
+
+        card.classList.add('flipped'); // Gira la carta
+      });
+
+      // Controlla se tutte le carte selezionate sono corrette
+      const allCorrect = selectedCards.every(card => card.dataset.correct === "true");
+      if (allCorrect) {
+        message.style.display = 'block'; // Mostra il messaggio finale
+        retryBtn.style.display = 'none'; // Nascondi il pulsante Ritenta
+      } else {
+        alert("Hai selezionato carte sbagliate! Riprova.");
+        retryBtn.style.display = 'inline-block'; // Mostra il pulsante Ritenta
+      }
+
+      confirmBtn.style.display = 'none'; // Nascondi il pulsante Conferma
+    });
+
+    // Gestione del pulsante Ritenta
+    retryBtn.addEventListener('click', () => {
+      selectedCards.forEach(card => {
+        card.classList.remove('flipped', 'selected'); // Resetta le carte
+        const back = card.querySelector('.card-back');
+        back.style.backgroundImage = ''; // Rimuove l'immagine di sfondo
+      });
+      selectedCards = [];
+      retryBtn.style.display = 'none'; // Nascondi il pulsante Ritenta
+
+      // Rigira tutte le carte sul lato originale
+      cards.forEach(card => {
+        card.classList.remove('flipped'); // Resetta la rotazione
+      });
+    });
+  </script>
+</body>
+</html>
