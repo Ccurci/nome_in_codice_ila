@@ -21,8 +21,8 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 15px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
       max-width: 800px;
       margin: 0 auto;
     }
@@ -147,7 +147,7 @@
 </head>
 <body>
 
-  <h1>Nome in Codice - Auguri</h1>
+  <h1>Nome in Codice - Ila's Edition</h1>
 
 
   <div id="hint">Indizio: le lettere di Ilaria, 6</div>
@@ -226,11 +226,11 @@
         <div class="card-back"></div>
       </div>
     </div>
-    <div class="card" data-letter="MARGHERITA">
+    <div class="card" data-letter="DIVANO">
       <div class="card-inner">
         <div class="card-front">
-          <div class="text text-upright">MARGHERITA</div>
-          <div class="text text-upside-down">MARGHERITA</div>
+          <div class="text text-upright">DIVANO</div>
+          <div class="text text-upside-down">DIVANO</div>
         </div>
         <div class="card-back"></div>
       </div>
@@ -262,11 +262,11 @@
         <div class="card-back"></div>
       </div>
     </div>
-    <div class="card" data-letter="PRATO">
+    <div class="card" data-letter="AMICHE">
       <div class="card-inner">
         <div class="card-front">
-          <div class="text text-upright">PRATO</div>
-          <div class="text text-upside-down">PRATO</div>
+          <div class="text text-upright">AMICHE</div>
+          <div class="text text-upside-down">AMICHE</div>
         </div>
         <div class="card-back"></div>
       </div>
@@ -316,11 +316,11 @@
         <div class="card-back"></div>
       </div>
     </div>
-    <div class="card" data-letter="ORA">
+    <div class="card" data-letter="GIOCHI">
       <div class="card-inner">
         <div class="card-front">
-          <div class="text text-upright">ORA</div>
-          <div class="text text-upside-down">ORA</div>
+          <div class="text text-upright">GIOCHI</div>
+          <div class="text text-upside-down">GIOCHI</div>
         </div>
         <div class="card-back"></div>
       </div>
@@ -370,6 +370,7 @@
         <div class="card-back"></div>
       </div>
     </div>
+    <!--
     <div class="card" data-letter="ACQUA">
       <div class="card-inner">
         <div class="card-front">
@@ -379,6 +380,7 @@
         <div class="card-back"></div>
       </div>
     </div>
+    -->
     <!-- Ripeti altre carte fino a 25 -->
   </div>
 
@@ -404,7 +406,7 @@
     let currentHint = 0;
   
     const hints = [
-      { clue: "le lettere di Ilaria, 6", correctCards: ["INDIA", "LUOGO", "ANIMA", "ROMA", "INIMITABILE", "AMORE"] }, // Indizio 1
+      { clue: "Poltronersss, 3", correctCards: ["DIVANO", "AMICHE", "GIOCHI"] }, // Indizio 1
       { clue: "le identità di Ilaria, 2", correctCards: ["HITLARIA", "BLOOM"] }, // Indizio 2
       { clue: "il futuro di Ila, 3", correctCards: ["FELICITA", "LAUREA", "MONTAGNA"] }, // Indizio 3
     ];
