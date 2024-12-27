@@ -85,13 +85,13 @@
       top: 57px; /* Posiziona il testo in alto */
       left: 50%;
       transform: translateX(-50%);
-      font-size: 16px; /* Font size diverso */
+      font-size: 14px; /* Font size diverso */
     }
 
     .card .card-front .text-upside-down {
       color: rgba(81, 55, 16, 0.719);
       bottom: 50px; /* Posiziona il testo in basso */
-      left: 40%;
+      left: 43%;
       transform: translateX(-50%) rotate(180deg); /* Ruota il testo sottosopra */
       font-size: 12px; /* Font size diverso */
     }
@@ -175,24 +175,24 @@
     </h1>
 
 
-  <div id="hint">Indizio: le lettere di Ilaria, 6</div>
+  <div id="hint"></div>
   
   <div class="grid">
     <!-- Carte con le immagini e i messaggi sul retro -->
-    <div class="card" data-letter="INIMITABILE">
+    <div class="card" data-letter="SOLDI">
       <div class="card-inner">
         <div class="card-front">
-          <div class="text text-upright">INIMITABILE</div>
-          <div class="text text-upside-down">INIMITABILE</div>
+          <div class="text text-upright">SOLDI</div>
+          <div class="text text-upside-down">SOLDI</div>
         </div>
         <div class="card-back"></div>
       </div>
     </div>
-    <div class="card" data-letter="LOMBRICO">
+    <div class="card" data-letter="PROSTITUZIONE">
       <div class="card-inner">
         <div class="card-front">
-          <div class="text text-upright"> LOMBRICO</div>
-          <div class="text text-upside-down"> LOMBRICO</div>
+          <div class="text text-upright"> PROSTITUZIONE</div>
+          <div class="text text-upside-down"> PROSTITUZIONE</div>
         </div>
         <div class="card-back"></div>
       </div>
@@ -278,6 +278,15 @@
         <div class="card-back"></div>
       </div>
     </div>
+    <div class="card" data-letter="DIVERTIMENTO">
+      <div class="card-inner">
+        <div class="card-front">
+          <div class="text text-upright">DIVERTIMENTO</div>
+          <div class="text text-upside-down">DIVERTIMENTO</div>
+        </div>
+        <div class="card-back"></div>
+      </div>
+    </div>
     <div class="card" data-letter="WINX">
       <div class="card-inner">
         <div class="card-front">
@@ -359,20 +368,11 @@
         <div class="card-back"></div>
       </div>
     </div>
-    <div class="card" data-letter="COSA">
+    <div class="card" data-letter="PORNOGRAFIA">
       <div class="card-inner">
         <div class="card-front">
-          <div class="text text-upright">COSA</div>
-          <div class="text text-upside-down">COSA</div>
-        </div>
-        <div class="card-back"></div>
-      </div>
-    </div>
-    <div class="card" data-letter="LUOGO">
-      <div class="card-inner">
-        <div class="card-front">
-          <div class="text text-upright">LUOGO</div>
-          <div class="text text-upside-down">LUOGO</div>
+          <div class="text text-upright">PORNOGRAFIA</div>
+          <div class="text text-upside-down">PORNOGRAFIA</div>
         </div>
         <div class="card-back"></div>
       </div>
@@ -386,32 +386,22 @@
         <div class="card-back"></div>
       </div>
     </div>
-    <div class="card" data-letter="ROSA">
+    <div class="card" data-letter="GIURISPRUDENZA">
       <div class="card-inner">
         <div class="card-front">
-          <div class="text text-upright">ROSA</div>
-          <div class="text text-upside-down">ROSA</div>
+          <div class="text text-upright">GIURISPRUDENZA</div>
+          <div class="text text-upside-down">GIURISPRUDENZA</div>
         </div>
         <div class="card-back"></div>
       </div>
     </div>
-    <!--
-    <div class="card" data-letter="ACQUA">
-      <div class="card-inner">
-        <div class="card-front">
-          <div class="text text-upright">ACQUA</div>
-          <div class="text text-upside-down">ACQUA</div>
-        </div>
-        <div class="card-back"></div>
-      </div>
-    </div>
-    -->
-    <!-- Ripeti altre carte fino a 25 -->
+
   </div>
 
   <button id="confirm-btn" style="display:none;">Conferma</button>
   <button id="next-hint-btn" style="display:none;">Nuovo Indizio</button>
   <div id="message" style="display:none;"> 
+    <p>HAI VINTO!</p>
     <p>
     Nome in Codice (Ila's edition) era solo l'inizio, nei prossimmi giorni arriverà anche la copia commerciale - maledetti corrieri che vanno in vacanza a Natale! <br>
     Nel frattempo dovrai accontentarti dell'altro regalino e di tutto il nostro affetto.
@@ -443,9 +433,10 @@
     let currentHint = 0;
   
     const hints = [
-      { clue: "Poltronersss - 3", correctCards: ["DIVANO", "AMICHE", "GIOCHI"] }, // Indizio 1
-      { clue: "Le molteplici identità di Ilaria - 3", correctCards: ["HITLARIA", "BLOOM", "DORY"] }, // Indizio 2
-      { clue: "Poor/ Povero, 3", correctCards: ["STAR", "MENDICANTE"] }, // Indizio 3
+      { clue: "Poltronersss, 3", correctCards: ["DIVANO", "AMICHE", "GIOCHI"] }, // Indizio 1
+      { clue: "Le molteplici identità di Ilaria, 3", correctCards: ["HITLARIA", "BLOOM", "DORY"] }, // Indizio 2
+      { clue: "Poor/ Povero, 2 ", correctCards: ["STAR", "MENDICANTE"] }, // Indizio 3
+      { clue: "Gli studi di Ilaria, 2", correctCards: ["PORNOGRAFIA", "PROSTITUZIONE"] }, // Indizio 4
     ];
   
     let resolvedCards = new Set(); // Carte già scoperte correttamente
