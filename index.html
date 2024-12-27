@@ -2,8 +2,8 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nome in Codice - Auguri</title>
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
+  <title>Nome in Codice - Ila's Edition</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -17,6 +17,7 @@
       font-size: 28px;
       color: #333;
       margin-bottom: 20px;
+      text-align: center;
     }
 
     .grid {
@@ -117,7 +118,7 @@
       background-position: top center; /* Sposta l'immagine verso l'alto, centrata orizzontalmente */
     }
 
-    #confirm-btn, #retry-btn {
+    #confirm-btn, #retry-btn #next-hint-btn{
       margin-top: 20px;
       padding: 10px 20px;
       background-color: #28a745;
@@ -128,7 +129,10 @@
       cursor: pointer;
       display: none;
     }
-
+    #next-hint-btn{
+      margin-top: 20px;
+      background-color: white; /* Rosso per il pulsante Ritenta */
+    }
     #retry-btn {
       background-color: #e74c3c; /* Rosso per il pulsante Ritenta */
     }
@@ -436,10 +440,11 @@
       const remainingCards = correctCards.filter(cardName => !resolvedCards.has(cardName)); // Carte ancora da scoprire
       console.log('resolved Cards', resolvedCards);
       console.log('correct cards', correctCards);
-      if (resolvedCards.size === correctCards.length) {
+      console.log('remaining cards', remainingCards, remainingCards.length);
+      if (remainingCards.length === 0) {
         console.log('indizio completato')
         // Indizio completato correttamente
-        resolvedCards = new Set();
+        // resolvedCards = new Set();
         confirmBtn.style.display = 'none';
         nextHintBtn.style.display = 'inline-block'; // Mostra il pulsante "Nuovo Indizio"
       } else if (!allCorrect) {
