@@ -14,7 +14,7 @@
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 35px;
       color: #333;
       margin-bottom: 20px;
       text-align: center;
@@ -47,7 +47,10 @@
       transform-style: preserve-3d;
       transition: transform 0.6s;
     }
-
+    .subtitle {
+      font-size: 0.8em; /* Riduce la dimensione */
+      /* color: gray;  Facoltativo: cambia colore */
+    }
     .card.flipped .card-inner {
       transform: rotateY(180deg);
     }
@@ -123,7 +126,7 @@
       padding: 10px 20px;
       background-color: #28a745;
       color: white;
-      font-size: 18px;
+      font-size: 25px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -131,6 +134,7 @@
     }
     #next-hint-btn{
       margin-top: 20px;
+      font-size: 25px;
       background-color: white; /* Rosso per il pulsante Ritenta */
     }
     #retry-btn {
@@ -143,6 +147,21 @@
       color: #e74c3c;
       display: none;
     }
+    #message {
+    position: fixed; /* Posiziona il messaggio rispetto alla finestra */
+    top: 30%; /* Centra verticalmente */
+    left: 50%; /* Centra orizzontalmente */
+    transform: translate(-50%, -50%); /* Aggiusta il centraggio */
+    z-index: 1000; /* Assicura che il messaggio sia sopra tutto */
+    background-color: white; /* Sfondo del messaggio */
+    padding: 20px; /* Spazi interni */
+    border-radius: 10px; /* Angoli arrotondati */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra */
+    font-size: 24px; /* Dimensione del testo */
+    color:indianred; /* Colore del testo */
+    text-align: center; /* Allinea il testo al centro */
+    display: none; /* Inizia nascosto */
+  }
 
     .selected {
       border: 2px solid #007bff; /* Evidenziazione delle carte selezionate */
@@ -151,7 +170,9 @@
 </head>
 <body>
 
-  <h1>Nome in Codice - Ila's Edition</h1>
+  <h1>NOME IN CODICE <br>
+    <span class="subtitle">Ila's Edition</span>
+    </h1>
 
 
   <div id="hint">Indizio: le lettere di Ilaria, 6</div>
@@ -176,11 +197,11 @@
         <div class="card-back"></div>
       </div>
     </div>
-    <div class="card" data-letter="ANIMA">
+    <div class="card" data-letter="DORY">
       <div class="card-inner">
         <div class="card-front">
-          <div class="text text-upright">ANIMA</div>
-          <div class="text text-upside-down">ANIMA</div>
+          <div class="text text-upright">DORY</div>
+          <div class="text text-upside-down">DORY</div>
         </div>
         <div class="card-back"></div>
       </div>
@@ -194,11 +215,11 @@
         <div class="card-back"></div>
       </div>
     </div>
-    <div class="card" data-letter="INDIA">
+    <div class="card" data-letter="MENDICANTE">
       <div class="card-inner">
         <div class="card-front">
-          <div class="text text-upright">INDIA</div>
-          <div class="text text-upside-down">INDIA</div>
+          <div class="text text-upright">MENDICANTE</div>
+          <div class="text text-upside-down">MENDICANTE</div>
         </div>
         <div class="card-back"></div>
       </div>
@@ -329,11 +350,11 @@
         <div class="card-back"></div>
       </div>
     </div>
-    <div class="card" data-letter="TEMPO">
+    <div class="card" data-letter="STAR">
       <div class="card-inner">
         <div class="card-front">
-          <div class="text text-upright">TEMPO</div>
-          <div class="text text-upside-down">TEMPO</div>
+          <div class="text text-upright">STAR</div>
+          <div class="text text-upside-down">STAR</div>
         </div>
         <div class="card-back"></div>
       </div>
@@ -390,13 +411,25 @@
 
   <button id="confirm-btn" style="display:none;">Conferma</button>
   <button id="next-hint-btn" style="display:none;">Nuovo Indizio</button>
-  <div id="message" style="display:none;">Tanti auguri, Ila! 🎉</div>
+  <div id="message" style="display:none;"> 
+    <p>
+    Nome in Codice (Ila's edition) era solo l'inizio, nei prossimmi giorni arriverà anche la copia commerciale - maledetti corrieri che vanno in vacanza a Natale! <br>
+    Nel frattempo dovrai accontentarti dell'altro regalino e di tutto il nostro affetto.
+    </p>
+    <p>Tanti auguri! </p>
+    <p></p>
+    <em>Carol, Mavi, Benni, Maddalena, Arianna, Chiara, 
+      Irene, Diego, Federica, Davide, Chiara, Andrea 
+    </em>
+
+  </div>
   
   <style>
     #hint {
-      font-size: 1.5rem; /* Cambia la grandezza della scritta dell'indizio */
+      font-size: 2.0rem; /* Cambia la grandezza della scritta dell'indizio */
       font-weight: bold;
       margin: 10px 10px;
+      color:cadetblue
     }
   </style>
   
@@ -410,9 +443,9 @@
     let currentHint = 0;
   
     const hints = [
-      { clue: "Poltronersss, 3", correctCards: ["DIVANO", "AMICHE", "GIOCHI"] }, // Indizio 1
-      { clue: "le identità di Ilaria, 2", correctCards: ["HITLARIA", "BLOOM"] }, // Indizio 2
-      { clue: "il futuro di Ila, 3", correctCards: ["FELICITA", "LAUREA", "MONTAGNA"] }, // Indizio 3
+      { clue: "Poltronersss - 3", correctCards: ["DIVANO", "AMICHE", "GIOCHI"] }, // Indizio 1
+      { clue: "Le molteplici identità di Ilaria - 3", correctCards: ["HITLARIA", "BLOOM", "DORY"] }, // Indizio 2
+      { clue: "Poor/ Povero, 3", correctCards: ["STAR", "MENDICANTE"] }, // Indizio 3
     ];
   
     let resolvedCards = new Set(); // Carte già scoperte correttamente
