@@ -473,7 +473,7 @@
         nextHintBtn.style.display = 'inline-block'; // Mostra il pulsante "Nuovo Indizio"
       } else if (!allCorrect) {
         // Indizio fallito: deseleziona solo le carte sbagliate
-        alert("Hai selezionato carte sbagliate! Riprova.");
+        alert("Mancano ancora: "+String(remainingCards.length) +" carta/e. Riprova!");
         selectedCards.forEach(card => {
           const cardName = card.dataset.letter;
           if (!correctCards.includes(cardName)) {
